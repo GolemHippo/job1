@@ -1,8 +1,28 @@
-def draw_triangle(height):
-    print((' '*(height/2))+'/'+'\\'+(' '*(height/2)))
-    for i in range(height-2):
-        print('|'+' '*(width-2)+'|')
-    print('|'+'-'*(width-2)+'|')
-width=int(input("width"))   
-height=int(input("height"))
-draw_triangle(height)
+Cap = float(input("quel est l'investissement initial?"))
+Rend = float(input("quel est le rendement initial?"))
+Capital_final = Cap * (1+(Rend/100))
+Gain_final = Capital_final - Cap
+
+while True:
+
+    Capital_final = Cap * (1+(Rend/100))
+    Gain_final = Capital_final - Cap
+
+    Suite=input("Que voulez vous faire ?\n'Investir'\n'Modifier le rendement'\n'Consulter le solde de l'investissement'\n'Arrêter le programme'")
+    if Suite=="Investir":
+        Nv_Inv=float(input("Combien voulez-vous investir ou retirer?"))
+        Cap=Nv_Inv+Cap
+        print("Vous avez désormais un total de {}€ d'investis".format(Cap))
+    
+    elif Suite=="Modifier le rendement":
+        Chg_Rend=float(input("Combien de pourcentage le rendement gagne ou perd il ?"))
+        Rend=Chg_Rend+Rend
+        print("Le rendement annuel est désormais de {}'%'".format(Rend))
+
+    elif Suite=="Consulter le solde de l'investissement":
+        print("Vous avez actuellement {}€ d'investi,\nAvec un rendement annuel évalué à {}%.\nLe gain final prévu est de {}€".format(Cap,Rend,Gain_final))
+
+    elif Suite=="Arrêter le programme":
+        break
+
+print("Le gain annuel est de {}€\nLe capital final est lui de {}€".format(Gain_final,Capital_final))
