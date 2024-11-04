@@ -1,0 +1,8 @@
+def draw_triangle(height):
+    print((' '*(height/2))+'/'+'\\'+(' '*(height/2)))
+    for i in range(height-2):
+        print('|'+' '*(width-2)+'|')
+    print('|'+'-'*(width-2)+'|')
+width=int(input("width"))   
+height=int(input("height"))
+draw_triangle(height)
